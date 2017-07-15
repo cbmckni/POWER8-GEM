@@ -1,0 +1,12 @@
+#!/bin/bash
+
+pwd > basedir.txt
+BASEDIR=$(pwd)
+cp basedir.txt $BASEDIR/Templates 
+cp basedir.txt $BASEDIR/Logs/Progress
+rm $BASEDIR/basedir.txt
+
+qsub -o $BASEDIR/Logs/init.out -e $BASEDIR/Logs/init.err \
+Templates/UnpackSoftware.pbs
+
+
