@@ -15,12 +15,23 @@ Note that PBS-GEM does not perform transcript assembly, and will only quantify a
 
 ## Pre-Workflow User Input
 
-### Decompress software
-This workflow contains pre-configured software packages.  To decompress them for use, execute the _initiate_ script:
+### Install Software and Create Conda Environment
 
-    $ ./initiate
-  
-This will submit a PBS job that decompresses the SRA toolkit, Trimmomatic, Hisat2, and StringTie packages for use 
+To install software needed for the POWER8-GEM workflow, run:
+
+	$ chmod +x 00-Install-tools.sh
+	$ sudo ./00-Install-tools.sh
+
+When prompted for an installation location for Miniconda, enter:
+
+	 /home/<user>/bin/miniconda2
+
+After the installation has finished, run:
+
+	$ conda update conda
+	$ conda create -c biobuilds -n power8-gem Trimmomatic HISAT2 Samtools
+
+If all of these commands were entered correctly, the POWER8-GEM should be ready to use.
 
 ### Download and Index Reference Genome
 

@@ -6,7 +6,7 @@ BASEDIR=$(pwd)
 mkdir $BASEDIR/FastQ
 cd $BASEDIR/FastQ
 
-for i in `cat SRAList.txt`
+for i in `cat $BASEDIR/SRAList.txt`
 do
     for j in 1 2
     do 
