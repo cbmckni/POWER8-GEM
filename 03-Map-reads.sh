@@ -1,8 +1,6 @@
 #!/bin/bash
 
-REF=$1
-
-source activate power8-gem
+REF=$l
 
 BASEDIR=$(pwd)
 mkdir $BASEDIR/Alignment
@@ -21,6 +19,5 @@ samtools view -bS "$i".hits.sam > \
 samtools sort -o \
 "$i"-accepted_hits.view.sorted "$i"-accepted_hits.view
 
-; done
+ done
 
-source deactivate power8-gem
