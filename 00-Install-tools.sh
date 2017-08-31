@@ -3,11 +3,8 @@
 cd $HOME/bin/POWER8-GEM/Software
 BASEDIR=$(pwd)
 
-
-mkdir ~/bin
-cd ~/bin
-tar xvfz $BASEDIR/stringtie-1.3.3b.tar.gz
-cd ~/bin/stringtie-1.3.3b
+git clone https://github.com/gpertea/stringtie.git
+cd stringtie
 make release
 
 cd $BASEDIR

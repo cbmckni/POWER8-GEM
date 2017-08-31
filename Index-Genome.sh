@@ -10,5 +10,5 @@ hisat2-build -f ./*fa "$REF_PREFIX"
 
 cp *fa "$REF_PREFIX.fa"
 
-source activate power8-gem
+source deactivate power8-gem
 
