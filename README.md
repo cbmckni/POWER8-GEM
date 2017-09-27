@@ -1,7 +1,7 @@
 # POWER8-GEM
 This workflow contains bash scripts that perform the following tasks on an IBM POWER8 architecture:
 
-* Download RNA sequencing data in FASTQ format using the [SRA Toolkit](https://www.ncbi.nlm.nih.gov/books/NBK158900/)
+* Download RNA sequencing data in FASTQ format from the [EMBL-EBI](http://www.ebi.ac.uk/)
 * Trim raw fastq files of poor quality reads and Illumina adapter sequences using [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
 * Map cleaned reads to a reference genome using  [Hisat2](https://ccb.jhu.edu/software/hisat2/manual.shtml)
 * Quantify RNA transcript abundances using [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
@@ -26,12 +26,9 @@ When prompted for an installation location for Miniconda, enter:
 
 	 /home/<user>/bin/miniconda2
 
-After the installation has finished, run:
+The rest of the installation should proceed normally.
 
-	$ conda update conda
-	$ conda create -c biobuilds -n power8-gem Trimmomatic HISAT2 Samtools
-
-If all of these commands were entered correctly, the POWER8-GEM should be ready to use.
+After all of the software has finished installing, the POWER8-GEM should be ready to run.
 
 ### Download and Index Reference Genome
 
@@ -66,9 +63,7 @@ If needed, you can execute each step of the pipeline as follows:
 
 ### Download Input Data
 
-    $ ./01-Prepare-inputs.sh
-    
-Please note that this script has the "-X 10000" parameter set by default.  This will only download the first 10,000 reads from each sample, to enable the user to quickly test the workflow.  Please remove "X 10000" from the _FASTQ-DUMP.template_ file in the _Templates_ directory when performing your experiment.  
+    $ ./01-Prepare-inputs.sh  
   
 ### Trim Reads
 
@@ -92,5 +87,5 @@ When using your own data, please replace "chr21-GRCh38" with the appropriate ref
 
 With full datasets, each step of this workflow can take several hours.  Please be sure that all PBS jobs have finished before moving onto the next step.  A "Logs" directory will be created upon initiation of the workflow.  Please inspect all log files for errors. 
 
-NOTE: This is an adaptation of the PBS-GEM, which is based off the OSG-GEM. William Poehlman and Dr. Alex Feltus deserve credit for the development of those workflows, respectively.  
+NOTE: This is an adaptation of the PBS-GEM, which is based off the OSG-GEM. William Poehlman and Dr. Alex Feltus deserve credit for the development of those workflows.  
 
