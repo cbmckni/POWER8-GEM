@@ -11,7 +11,7 @@ for i in `cat $BASEDIR/SRAList.txt` ; do
 READ=$(zcat $BASEDIR/FastQ/"$i"_1.fastq.gz | head -6 | tail -1)
 LEN=${#READ}
 
-trimmomatic PE -phred33 \
+trimmomatic PE -threads 80 -phred33 \
 $BASEDIR/FastQ/"$i"_1.fastq.gz $BASEDIR/FastQ/"$i"_2.fastq.gz \
 "$i"_1.forward_paired_trim.fastq "$i"_1.forward_unpaired_trim.fastq \
 "$i"_2.reverse_paired_trim.fastq "$i"_2.reverse_unpaired_trim.fastq \

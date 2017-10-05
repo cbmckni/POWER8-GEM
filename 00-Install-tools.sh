@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $HOME/bin/POWER8-GEM/Software
+cd /gpfs/gpfs_4mb/rchen/GEM/POWER8-GEM/Software
 BASEDIR=$(pwd)
 
 git clone https://github.com/gpertea/stringtie.git
